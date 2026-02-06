@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Starter</title>
+</head>
+<body>
+    <h1>Flask Starter App</h1>
+
+    <form method="post">
+        <input type="text" name="message" placeholder="Enter a message" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>Messages</h2>
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% else %}
+            <li>No messages yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
