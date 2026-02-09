@@ -2,23 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Flask Starter</title>
+    <title>Todo App</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        form {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        button {
+            padding: 10px 16px;
+            background: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        h2 {
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 18px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            padding: 10px 12px;
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+        }
+        li.empty {
+            text-align: center;
+            color: #999;
+            background: transparent;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Flask Starter App</h1>
+    <div class="container">
+        <h1>Todo App</h1>
 
-    <form method="post">
-        <input type="text" name="message" placeholder="Enter a message" required>
-        <button type="submit">Add</button>
-    </form>
+        <form method="post">
+            <input type="text" name="message" placeholder="Add a new task" required>
+            <button type="submit">Add</button>
+        </form>
 
-    <h2>Messages</h2>
-    <ul>
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% else %}
-            <li>No messages yet.</li>
-        {% endfor %}
-    </ul>
+        <h2>Your Tasks</h2>
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% else %}
+                <li class="empty">No tasks yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
